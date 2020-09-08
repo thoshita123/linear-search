@@ -1,0 +1,23 @@
+#include<stdio.h>
+int main()
+{
+    int a[100],s,i,n;
+    printf("Enter number of elements");
+    scanf("%d",&n);
+    printf("Enter %d integers",n);
+    for(i=0;i<n;i++)
+    scanf("%d",&a[i]);
+    printf("Enter searchimg element");
+    scanf("%d",&s);
+    for(i=0;i<n;i++)
+    {
+        if(a[i]==s)
+        {
+            printf("%d is present",s);
+            break;
+        }
+    }
+    if(i==n)
+    printf("%d is not present",s);
+    return 0;
+}
