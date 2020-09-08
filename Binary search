@@ -1,0 +1,41 @@
+#include<stdio.h>
+void bsearch(int a[],int lo,int hi,int s);
+void main()
+{
+    int a[100],n,i,s;
+    printf("Enter number of elements\n");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        printf("Enter %d element\n",i);
+        scanf("%d",&a[i]);
+    }
+    printf("Enter searching element\n");
+    scanf("%d",&s);
+    bsearch(a,1,n,s);
+}
+void bsearch(int a[],int lo,int hi,int s)
+{
+    int mid;
+    while(lo<=hi)
+    {
+        mid=(lo+hi)/2;
+        if(s==a[mid])
+        {
+            printf("found at %d location",mid);
+            break;
+        }
+        else if(s<a[mid])
+        {
+            hi=mid-1;
+        }
+        else
+        {
+            lo=mid+1;
+        }
+    }
+    if(lo>hi)
+    {
+        printf("not found");
+    }
+}
