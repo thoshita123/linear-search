@@ -1,0 +1,34 @@
+/* roll number : 19A81A05J5 */
+#include <stdio.h>
+int a[100];
+void print(int[],int);
+int main()
+{
+    int i,j,k,p,n,ele;
+    printf("Enter n value");
+    scanf("%d",&n);
+    for(i=1;i<=n;i++)
+    {
+        printf("Enter %d value",i);
+        scanf("%d"  ,&ele);
+        for(j=1;j<=n;j++)
+        {
+            if(ele>a[j])  {p=j; break; }
+        }
+        for(k=n;k>=p;k--)
+        {
+            a[k+1]=a[k];
+        }
+        a[p]=ele;
+        
+        print(a,n);
+    }
+}
+void print(int a[],int n)
+{
+    int i;
+    for(i=n;i>=1;i--)
+    {
+        printf("%d  ",a[i]);
+    }
+}
