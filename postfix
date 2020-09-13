@@ -1,0 +1,50 @@
+#include<stdio.h>
+#include<ctype.h>
+void push(int);
+int pop();
+int st[100],top=-1;
+int main()
+{
+    char ps[20];
+    int i,a,b,c,ele;
+    printf("Enter postfix expression");
+    scanf("%s",ps);
+    
+    for(i=0;ps[i]!='\0';i++)
+    {
+        if(isdigit(ps[i]))
+        {
+            push(ps[i]-'0');
+        }
+        else
+        {
+            b=pop();
+            a=pop();
+            switch(ps[i])
+            {
+            case '+': c=a+b; break;
+            case '-': c=a-b; break;
+            case '*': c=a*b; break;
+            case '/': c=a/b; break;
+            case '%': c=a%b; break;
+            }
+            push(c);
+        }
+    }
+        printf("the answer is %d",st[0]);
+        
+        return 0;
+    }
+    
+    void push(int ele)
+    {
+        top++;
+        st[top]=ele;
+    }
+    
+    int pop()
+    {
+        int d=st[top];
+        top--;
+        return d;
+    }
